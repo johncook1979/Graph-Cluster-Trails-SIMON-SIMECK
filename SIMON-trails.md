@@ -2,7 +2,7 @@
 The following table presents the differential trails for SIMON using a bi-directional (forward and backwards) strategy. The timings of the trials and summation of round probability are presented at the bottom of the table. The results were achieved using a pDDT and form part of a wider analysis.
 
 
-**Table 1: SIMON differential trails **
+### Table 1: SIMON differential trails
 | Round        | dx     | dy     | wt    |   | Round | dx       | dy       | wt   |   | Round | dx         | dy         | wt    |   | Round | dx             | dy             | wt    |   | Round | dx                 | dy                 | wt    |
 |--------------|--------|--------|-------|---|-------|----------|----------|------|---|-------|------------|------------|-------|---|-------|----------------|----------------|-------|---|-------|--------------------|--------------------|-------|
 | −6           | 0x202  | 0x8088 | 4     |   | −8    | 0x2000   | 0x800880 | 2    |   | −9    | 0x80008880 | 0x2000     | 8     |   | −6    | 0x202          | 0x800000000088 | 4     |   | −25   | 0x8000000000008880 | 0x2000             | 8     |
