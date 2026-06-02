@@ -2,32 +2,462 @@
 The following table presents the differential trails for SIMECK using a bi-directional (forward and backwards) strategy. The timings of the trials and summation of round probability are presented at the bottom of the table. The results were achieved using a pDDT and form part of a wider analysis.
 
 ### Table 1: SIMECK differential trails
-| Round          | dx     | dy     | wt   |   | Round | dx       | dy       | wt   |   | Round | dx         | dy         | wt    |
-|----------------|--------|--------|------|---|-------|----------|----------|------|---|-------|------------|------------|-------|
-| −8             | 0x0    | 0x8008 | 0    |   | 1     | 0x0      | 0x800000 | 0    |   | −20   | 0x4        | 0x80000002 | 2     |
-| −7             | 0x8008 | 0x1    | 4    |   | 2     | 0x800000 | 0x0      | 2    |   | −19   | 0x80000002 | 0x1        | 4     |
-| −6             | 0x1    | 0x800a | 2    |   | 3     | 0x1      | 0x800000 | 2    |   | −18   | 0x1        | 0x80000000 | 2     |
-| −5             | 0x800a | 0x4    | 6    |   | 4     | 0x800002 | 0x1      | 4    |   | −17   | 0x80000000 | 0x0        | 2     |
-| −4             | 0x4    | 0x8002 | 2    |   | 5     | 0x4      | 0x800002 | 2    |   | −16   | 0x0        | 0x80000000 | 0     |
-| −3             | 0x8002 | 0x1    | 4    |   | 6     | 0x80000a | 0x4      | 6    |   | −15   | 0x80000000 | 0x1        | 2     |
-| −2             | 0x1    | 0x8000 | 2    |   | 7     | 0x1      | 0x80000a | 2    |   | −14   | 0x1        | 0x80000002 | 2     |
-| −1             | 0x8000 | 0x0    | 2    |   | 8     | 0x800008 | 0x1      | 4    |   | −13   | 0x80000002 | 0x4        | 4     |
-| 1              | 0x0    | 0x8000 | 0    |   | 9     | 0x0      | 0x800008 | 0    |   | −12   | 0x4        | 0x8000000a | 2     |
-| 2              | 0x8000 | 0x0    | 2    |   | 10    | 0x800008 | 0x0      | 4    |   | −11   | 0x8000000a | 0x1        | 6     |
-| 3              | 0x1    | 0x8000 | 2    |   | 11    | 0x1      | 0x800008 | 2    |   | −10   | 0x1        | 0x80000008 | 2     |
-| 4              | 0x8002 | 0x1    | 4    |   | 12    | 0x80000a | 0x1      | 6    |   | −9    | 0x80000008 | 0x0        | 4     |
-| 5              | 0x4    | 0x8002 | 2    |   | 13    | 0x4      | 0x80000a | 2    |   | −8    | 0x0        | 0x80000008 | 0     |
-|                |        |        |      |   | 14    | 0x800002 | 0x4      | 4    |   | −7    | 0x80000008 | 0x1        | 4     |
-|                |        |        |      |   | 15    | 0x1      | 0x800002 | 2    |   | −6    | 0x1        | 0x8000000a | 2     |
-|                |        |        |      |   | 16    | 0x800000 | 0x1      | 2    |   | −5    | 0x8000000a | 0x4        | 6     |
-|                |        |        |      |   | 17    | 0x0      | 0x800000 | 0    |   | −4    | 0x4        | 0x80000002 | 2     |
-|                |        |        |      |   | 18    | 0x800000 | 0x0      | 2    |   | −3    | 0x80000002 | 0x1        | 4     |
-|                |        |        |      |   | 19    | 0x1      | 0x800000 | 2    |   | −2    | 0x1        | 0x80000000 | 2     |
-|                |        |        |      |   |       |          |          |      |   | −1    | 0x80000000 | 0x0        | 2     |
-|                |        |        |      |   |       |          |          |      |   | 1     | 0x0        | 0x80000000 | 0     |
-|                |        |        |      |   |       |          |          |      |   | 2     | 0x80000000 | 0x0        | 2     |
-|                |        |        |      |   |       |          |          |      |   | 3     | 0x1        | 0x80000000 | 2     |
-|                |        |        |      |   |       |          |          |      |   | 4     | 0x80000002 | 0x1        | 4     |
-|                |        |        |      |   |       |          |          |      |   | 5     | 0x4        | 0x80000002 | 2     |
-| $\sum_r   P_r$ |        |        | 32   |   |       |          |          | 48   |   |       |            |            | 64    |
-| Duration   (s) |        |        | 4.12 |   |       |          |          | 7.99 |   |       |            |            | 15.14 |
+
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-0pky" colspan="4">SIMECK 32</th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky" colspan="4">SIMECK 48</th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky" colspan="4">SIMECK 64</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−8</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x8008</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−20</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−7</td>
+    <td class="tg-0pky">0x8008</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−19</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x800a</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−18</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x800a</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x800002</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−17</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x8002</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x800002</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−16</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x8002</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">0x80000a</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−15</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">7</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x80000a</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−14</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−13</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">9</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−12</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x8000000a</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">10</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−11</td>
+    <td class="tg-0pky">0x8000000a</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">11</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−10</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x8002</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">12</td>
+    <td class="tg-0pky">0x80000a</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−9</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x8002</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">13</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x80000a</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−8</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">0</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">14</td>
+    <td class="tg-0pky">0x800002</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−7</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">15</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x800002</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x8000000a</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x8000000a</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">17</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">18</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">19</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">0x1</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x4</td>
+    <td class="tg-0pky">0x80000002</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">$\sum_r   P_r$</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">32</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">48</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">64</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Duration   (s)</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4.12</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">7.99</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">15.14</td>
+  </tr>
+</tbody></table>
