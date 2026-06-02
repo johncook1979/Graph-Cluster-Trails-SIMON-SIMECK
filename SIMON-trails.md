@@ -3,41 +3,830 @@ The following table presents the differential trails for SIMON using a bi-direct
 
 
 ### Table 1: SIMON differential trails
-| Round        | dx     | dy     | wt    |   | Round | dx       | dy       | wt   |   | Round | dx         | dy         | wt    |   | Round | dx             | dy             | wt    |   | Round | dx                 | dy                 | wt    |
-|--------------|--------|--------|-------|---|-------|----------|----------|------|---|-------|------------|------------|-------|---|-------|----------------|----------------|-------|---|-------|--------------------|--------------------|-------|
-| −6           | 0x202  | 0x8088 | 4     |   | −8    | 0x2000   | 0x800880 | 2    |   | −9    | 0x80008880 | 0x2000     | 8     |   | −6    | 0x202          | 0x800000000088 | 4     |   | −25   | 0x8000000000008880 | 0x2000             | 8     |
-| −5           | 0x8088 | 0x20   | 6     |   | −7    | 0x800880 | 0x202    | 6    |   | −8    | 0x2000     | 0x80000880 | 2     |   | −5    | 0x800000000088 | 0x20           | 6     |   | −24   | 0x2000             | 0x8000000000000880 | 2     |
-| −4           | 0x20   | 0x8008 | 2     |   | −6    | 0x202    | 0x800088 | 4    |   | −7    | 0x80000880 | 0x202      | 6     |   | −4    | 0x20           | 0x800000000008 | 2     |   | −23   | 0x8000000000000880 | 0x202              | 6     |
-| −3           | 0x8008 | 0x2    | 4     |   | −5    | 0x800088 | 0x20     | 6    |   | −6    | 0x202      | 0x80000088 | 4     |   | −3    | 0x800000000008 | 0x2            | 4     |   | −22   | 0x202              | 0x8000000000000088 | 4     |
-| −2           | 0x2    | 0x8000 | 2     |   | −4    | 0x20     | 0x800008 | 2    |   | −5    | 0x80000088 | 0x20       | 6     |   | −2    | 0x2            | 0x800000000000 | 2     |   | −21   | 0x8000000000000088 | 0x20               | 6     |
-| −1           | 0x8000 | 0x0    | 2     |   | −3    | 0x800008 | 0x2      | 4    |   | −4    | 0x20       | 0x80000008 | 2     |   | −1    | 0x800000000000 | 0x0            | 2     |   | −20   | 0x20               | 0x8000000000000008 | 2     |
-| 1            | 0x0    | 0x8000 | 0     |   | −2    | 0x2      | 0x800000 | 2    |   | −3    | 0x80000008 | 0x2        | 4     |   | 1     | 0x0            | 0x800000000000 | 0     |   | −19   | 0x8000000000000008 | 0x2                | 4     |
-| 2            | 0x8000 | 0x0    | 2     |   | −1    | 0x800000 | 0x0      | 2    |   | −2    | 0x2        | 0x80000000 | 2     |   | 2     | 0x800000000000 | 0x0            | 2     |   | −18   | 0x2                | 0x8000000000000000 | 2     |
-| 3            | 0x2    | 0x8000 | 2     |   | 1     | 0x0      | 0x800000 | 0    |   | −1    | 0x80000000 | 0x0        | 2     |   | 3     | 0x2            | 0x800000000000 | 2     |   | −17   | 0x8000000000000000 | 0x0                | 2     |
-| 4            | 0x8008 | 0x2    | 4     |   | 2     | 0x800000 | 0x0      | 2    |   | 1     | 0x0        | 0x80000000 | 0     |   | 4     | 0x800000000008 | 0x2            | 4     |   | −16   | 0x0                | 0x8000000000000000 | 0     |
-| 5            | 0x20   | 0x8008 | 2     |   | 3     | 0x2      | 0x800000 | 2    |   | 2     | 0x80000000 | 0x0        | 2     |   | 5     | 0x20           | 0x800000000008 | 2     |   | −15   | 0x8000000000000000 | 0x2                | 2     |
-|              |        |        |       |   | 4     | 0x800008 | 0x2      | 4    |   | 3     | 0x2        | 0x80000000 | 2     |   | 6     | 0x800000000088 | 0x20           | 6     |   | −14   | 0x2                | 0x8000000000000008 | 2     |
-|              |        |        |       |   | 5     | 0x20     | 0x800008 | 2    |   | 4     | 0x80000008 | 0x2        | 4     |   | 7     | 0x202          | 0x800000000088 | 4     |   | −13   | 0x8000000000000008 | 0x20               | 4     |
-|              |        |        |       |   | 6     | 0x800088 | 0x20     | 6    |   | 5     | 0x20       | 0x80000008 | 2     |   | 8     | 0x800000000880 | 0x202          | 6     |   | −12   | 0x20               | 0x8000000000002088 | 2     |
-|              |        |        |       |   | 7     | 0x202    | 0x800088 | 4    |   | 6     | 0x80000088 | 0x20       | 6     |   | 9     | 0x2080         | 0x800000000880 | 4     |   | −11   | 0x8000000000002088 | 0xa02              | 8     |
-|              |        |        |       |   |       |          |          |      |   | 7     | 0x202      | 0x80000088 | 4     |   | 10    | 0x800000000a80 | 0x2080         | 8     |   | −10   | 0xa02              | 0x8000000000000a80 | 6     |
-|              |        |        |       |   |       |          |          |      |   | 8     | 0x80000880 | 0x202      | 6     |   | 11    | 0xa02          | 0x800000000a80 | 6     |   | −9    | 0x8000000000000a80 | 0x2080             | 8     |
-|              |        |        |       |   |       |          |          |      |   | 9     | 0x2000     | 0x80000880 | 2     |   | 12    | 0x800000002088 | 0xa02          | 8     |   | −8    | 0x2080             | 0x8000000000000880 | 4     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 13    | 0x820          | 0x800000002088 | 4     |   | −7    | 0x8000000000000880 | 0x202              | 6     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 14    | 0x800000000008 | 0x820          | 4     |   | −6    | 0x202              | 0x8000000000000088 | 4     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 15    | 0x2            | 0x800000000008 | 2     |   | −5    | 0x8000000000000088 | 0x20               | 6     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 16    | 0x800000000000 | 0x2            | 2     |   | −4    | 0x20               | 0x8000000000000008 | 2     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 17    | 0x0            | 0x800000000000 | 0     |   | −3    | 0x8000000000000008 | 0x2                | 4     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 18    | 0x800000000000 | 0x0            | 2     |   | −2    | 0x2                | 0x8000000000000000 | 2     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 19    | 0x2            | 0x800000000000 | 2     |   | −1    | 0x8000000000000000 | 0x0                | 2     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 20    | 0x800000000008 | 0x2            | 4     |   | 1     | 0x0                | 0x8000000000000000 | 0     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   | 21    | 0x20           | 0x800000000008 | 2     |   | 2     | 0x8000000000000000 | 0x0                | 2     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 3     | 0x2                | 0x8000000000000000 | 2     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 4     | 0x8000000000000008 | 0x2                | 4     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 5     | 0x20               | 0x8000000000000008 | 2     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 6     | 0x8000000000000088 | 0x20               | 6     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 7     | 0x202              | 0x8000000000000088 | 4     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 8     | 0x8000000000000880 | 0x202              | 6     |
-|              |        |        |       |   |       |          |          |      |   |       |            |            |       |   |       |                |                |       |   | 9     | 0x2000             | 0x8000000000000880 | 2     |
-| $\sum_r P_r$ |        |        | 30    |   |       |          |          | 48   |   |       |            |            | 64    |   |       |                |                | 94    |   |       |                    |                    | 126   |
-| Duration (s) |        |        | 4.38 |   |       |          |          | 8.07 |   |       |            |            | 18.46 |   |       |                |                | 30.23 |   |       |                    |                    | 56.77 |
+
+<table class="tg"><thead>
+  <tr>
+    <td class="tg-c3ow" colspan="4">SIMON32</td>
+    <td class="tg-c3ow" rowspan="38"></td>
+    <td class="tg-c3ow" colspan="4">SIMON48</td>
+    <td class="tg-c3ow" rowspan="38"></td>
+    <td class="tg-c3ow" colspan="4">SIMON64</td>
+    <td class="tg-c3ow" rowspan="38"></td>
+    <td class="tg-c3ow" colspan="4">SIMON96</td>
+    <td class="tg-c3ow" rowspan="38"></td>
+    <td class="tg-c3ow" colspan="4">SIMON128</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+    <td class="tg-0pky">Round</td>
+    <td class="tg-0pky">dx</td>
+    <td class="tg-0pky">dy</td>
+    <td class="tg-0pky">wt</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x8088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−8</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">0x800880</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−9</td>
+    <td class="tg-0pky">0x80008880</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x800000000088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−25</td>
+    <td class="tg-0pky">0x8000000000008880</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">8</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x8088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−7</td>
+    <td class="tg-0pky">0x800880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−8</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">0x80000880</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x800000000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−24</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">0x8000000000000880</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x8008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x800088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−7</td>
+    <td class="tg-0pky">0x80000880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−23</td>
+    <td class="tg-0pky">0x8000000000000880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x8008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x800088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x80000088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−22</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x8000000000000088</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x80000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−21</td>
+    <td class="tg-0pky">0x8000000000000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−20</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky">−19</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−18</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x8000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−17</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x8008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−16</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">0</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x8008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x800000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−15</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x80000000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">0x800000000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−14</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x800008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">7</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x800000000088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−13</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">0x800088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x80000008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">0x800000000880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−12</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x8000000000002088</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">7</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x800088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">0x80000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">9</td>
+    <td class="tg-0pky">0x2080</td>
+    <td class="tg-0pky">0x800000000880</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−11</td>
+    <td class="tg-0pky">0x8000000000002088</td>
+    <td class="tg-0pky">0xa02</td>
+    <td class="tg-0pky">8</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">7</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x80000088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">10</td>
+    <td class="tg-0pky">0x800000000a80</td>
+    <td class="tg-0pky">0x2080</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">−10</td>
+    <td class="tg-0pky">0xa02</td>
+    <td class="tg-0pky">0x8000000000000a80</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">0x80000880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">11</td>
+    <td class="tg-0pky">0xa02</td>
+    <td class="tg-0pky">0x800000000a80</td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">−9</td>
+    <td class="tg-0pky">0x8000000000000a80</td>
+    <td class="tg-0pky">0x2080</td>
+    <td class="tg-0pky">8</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">9</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">0x80000880</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">12</td>
+    <td class="tg-0pky">0x800000002088</td>
+    <td class="tg-0pky">0xa02</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">−8</td>
+    <td class="tg-0pky">0x2080</td>
+    <td class="tg-0pky">0x8000000000000880</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">13</td>
+    <td class="tg-0pky">0x820</td>
+    <td class="tg-0pky">0x800000002088</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−7</td>
+    <td class="tg-0pky">0x8000000000000880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">14</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">0x820</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">−6</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x8000000000000088</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">15</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−5</td>
+    <td class="tg-0pky">0x8000000000000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−4</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">17</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">0</td>
+    <td class="tg-0pky">−3</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">18</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−2</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">19</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x800000000000</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">−1</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">20</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">1</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">0</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">21</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x800000000008</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">0x0</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">3</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">0x8000000000000000</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">0x2</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">0x8000000000000008</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">6</td>
+    <td class="tg-0pky">0x8000000000000088</td>
+    <td class="tg-0pky">0x20</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">7</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">0x8000000000000088</td>
+    <td class="tg-0pky">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">0x8000000000000880</td>
+    <td class="tg-0pky">0x202</td>
+    <td class="tg-0pky">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">9</td>
+    <td class="tg-0pky">0x2000</td>
+    <td class="tg-0pky">0x8000000000000880</td>
+    <td class="tg-0pky">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">$\sum_r P_r$</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">30</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">48</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">64</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">94</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">126</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Duration (s)</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">4.38</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">8.07</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">18.46</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">30.23</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">56.77</td>
+  </tr></thead></table>
